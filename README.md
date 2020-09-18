@@ -3,7 +3,7 @@
 This repo contains an open dataset for pixel-level classification of Landsat 7, Landsat 8, and Sentinel 2A Imagery along with the code for classification as well as the error correction methods on top of it.
 
 ## Methodology for pixel-level classification of Landsat 7 and Landsat 8 Imagery
-![alt text](images/landsat_classification.png?raw=true)
+![alt text](images/LC_classification_methodology.png?raw=true)
 
 ## Step by step procedure to do classification of a selected area.
 * **Step 1  : Run the GEE script**
