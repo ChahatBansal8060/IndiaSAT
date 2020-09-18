@@ -8,7 +8,7 @@ var bands = ['B1','B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B10', 'B11'];
 
 //boundary for India
 // Make sure that India_Boundary shapefiles are uploaded as assets in GEE and then change the path of that asset accordingly.
-var india = ee.FeatureCollection('users/hariomahlawat/India_Boundary')
+var india = ee.FeatureCollection('users/chahatresearch/India_Boundary')
     .geometry();
 
 var india_image = ee.ImageCollection('LANDSAT/LC08/C01/T1_TOA')
@@ -27,7 +27,7 @@ var india_image_training_min = india_image.min();
 var india_image_training_max = india_image.max();
 
 //Training feature collection. Imported from assets (Its a shapefile)
-var ft = ee.FeatureCollection('users/hariomahlawat/IndiaSat');
+var ft = ee.FeatureCollection('users/chahatresearch/IndiaSat');
 
 function add_normalized_bands(image){
   var ndvi = image.normalizedDifference(['B5', 'B4']).rename('NDVI'); //vegetaion index

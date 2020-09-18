@@ -36,6 +36,8 @@ if (district_name==""): #if user has put extra "/" at the end of input folder pa
 
 print('Name of Area/District - ',district_name)
 
+output_folder = 'Results/'+input_folder
+os.makedirs(output_folder,exist_ok=True)
 
 ##==========================================Sub folder structure creation ======================================================
 
@@ -51,14 +53,15 @@ for infile in os.listdir(input_folder):
     if infile[-4:] == ".tif":
         total_count = total_count+1
         for year in year_list:
-            os.makedirs(input_folder+"/"+year,exist_ok=True)
+            os.makedirs(output_folder+"/"+year,exist_ok=True)
             if (year in infile):
-                shutil.move(input_folder+'/'+infile, input_folder+'/'+year+'/'+infile)
+                #shutil.move(input_folder+'/'+infile, output_folder+'/'+year+'/'+infile)
+                shutil.copy(input_folder+'/'+infile, output_folder+'/'+year+'/'+infile)
 print("Total .tif files found in the root folder - ", total_count)
 
 
 for year in year_list:
-	main_folder = input_folder + '/' + year
+	main_folder = output_folder + '/' + year
 	os.makedirs(main_folder+"/pngs",exist_ok=True)
 	count = 0
 	for infile in os.listdir(main_folder):
@@ -79,15 +82,15 @@ print('''
 Make a year_median folder and copy all the yearly_median_prediction for all years in that folder.
 
 '''
-os.makedirs(input_folder+"/results/direct_application",exist_ok=True)
+os.makedirs(output_folder+"/results/direct_application",exist_ok=True)
 for year in year_list:
-	src_dir = input_folder + '/' + year + '/pngs'
-	dest_dir = input_folder+"/results/direct_application"
+	src_dir = output_folder + '/' + year + '/pngs'
+	dest_dir = output_folder+"/results/direct_application"
 	for infile in os.listdir(src_dir):
 		if ('year_median' in infile):
 			shutil.copyfile(src_dir+'/'+infile, dest_dir+'/'+district_name+'_prediction_'+year+'.png')
 
-make_images_colorful(input_folder, "direct_application")
+make_images_colorful(output_folder, "direct_application")
 
 ##=========================================Rule based approach =======================================================
 
@@ -98,9 +101,9 @@ print('''
 	-----------------------------------------------
 	''')
 
-os.makedirs(input_folder+"/results/combined_yearly_prediction",exist_ok=True)
+os.makedirs(output_folder+"/results/combined_yearly_prediction",exist_ok=True)
 for year in year_list:
-	main_folder = input_folder + '/' + year
+	main_folder = output_folder + '/' + year
 	#Find the minimum number of background pixels in the images of all months for this year
 	dataset = [ np.asarray(Image.open(main_folder+"/pngs/"+infile)) for infile in os.listdir(main_folder+"/pngs/") ]
 	image_dimension = dataset[0].shape
@@ -117,7 +120,7 @@ for year in year_list:
 
 	print("final_prediction "+year +" - ",np.unique(results_prediction,return_counts=True))
 	results_prediction = (Image.fromarray(results_prediction)).convert("L")
-	results_prediction.save(input_folder+'/results/combined_yearly_prediction/'+district_name+'_prediction_'+year+'.png')        
+	results_prediction.save(output_folder+'/results/combined_yearly_prediction/'+district_name+'_prediction_'+year+'.png')        
 print('done!')
 
 print('''
@@ -128,7 +131,7 @@ print('''
 	''')   
 
 
-make_images_colorful(input_folder, "combined_yearly_prediction")
+make_images_colorful(output_folder, "combined_yearly_prediction")
 
 ##========================================= Temp Correction procedure =========================================================			
 
@@ -143,11 +146,11 @@ print('''
 if flag_overlapping_TempCorrection==True:
 	print("Temporal correction is being done with overlapping of two years with batches of "
 		+ batch_size_overlapping + ' years')
-	Overlapping_TempCorrection_execution(input_folder, district_name, year_list, temp_correction_list, batch_size_overlapping)
+	Overlapping_TempCorrection_execution(output_folder, district_name, year_list, temp_correction_list, batch_size_overlapping)
 else:
 	print("Temporal correction is being done for all years together.")
 	for folder_name in temp_correction_list:
-		TempCorrection(input_folder, district_name, year_list, folder_name)		
+		TempCorrection(output_folder, district_name, year_list, folder_name)		
 
 print('''
 	-------------------------------------------------------
@@ -157,7 +160,7 @@ print('''
 #-----------------------------------------------------
 for folder_name in temp_correction_list:
 	temp_coorected_folder_name = folder_name + '_temp_corrected'
-	make_images_colorful(input_folder, temp_coorected_folder_name)
+	make_images_colorful(output_folder, temp_coorected_folder_name)
 
 
 print('''

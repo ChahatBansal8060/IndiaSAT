@@ -20,7 +20,7 @@ var bands = ['B1','B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8','B9', 'B10', 'B11','B
 
 //boundary for India
 // Make sure that India_Boundary shapefiles are uploaded as assets in GEE and then change the path of that asset accordingly.
-var india = ee.FeatureCollection('users/hariomahlawat/India_Boundary')
+var india = ee.FeatureCollection('users/chahatresearch/India_Boundary')
     .geometry();
 
 var india_image = ee.ImageCollection('COPERNICUS/S2') // searches all sentinel 2 imagery pixels...
@@ -37,7 +37,7 @@ var india_image_training_max = india_image.max();
 var india_image_training_min = india_image.min();
 
 //Training feature collection. Imported from assets (Its a shapefile)
-var ft = ee.FeatureCollection('users/hariomahlawat/IndiaSat');
+var ft = ee.FeatureCollection('users/chahatresearch/IndiaSat');
 
 
 function add_normalized_bands(image){
@@ -134,7 +134,7 @@ var errorMatrix5 = validation5.errorMatrix('class', 'classification');
 
 // var accuracy1 = ee.Feature(null, {matrix: accuracy1})
 
-var folder_name = 'Case8_Sentinel2A_5fold_accuracy_new_method'
+var folder_name = 'Sentinel2A_5fold_accuracy'
 
 
 var exportConfusionMatrix = ee.Feature(null, {matrix: errorMatrix1.array()})

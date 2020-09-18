@@ -28,7 +28,7 @@ var aoi_list = ['Kolkata']
 
 
 var bands = ['B1','B2', 'B3', 'B4', 'B5', 'B6','B7'];
-var india = ee.FeatureCollection('users/hariomahlawat/India_Boundary')
+var india = ee.FeatureCollection('users/chahatresearch/India_Boundary')
     .geometry();
 
 
@@ -47,7 +47,7 @@ var india_image_training_max = india_image.max();
 
 
 //Loading the training dataset and training the classifier
-var ft = ee.FeatureCollection('users/hariomahlawat/IndiaSat');
+var ft = ee.FeatureCollection('users/chahatresearch/IndiaSat');
 
 function add_normalized_bands(image){
   var ndvi = image.normalizedDifference(['B4', 'B3']).rename('NDVI'); //vegetaion index
@@ -143,7 +143,7 @@ var aoi_name = aoi_list[i];
     
       
     var aoi = aoi_list[j];
-    var aoi = ee.FeatureCollection('users/hariomahlawat/india_district_boundaries')
+    var aoi = ee.FeatureCollection('users/chahatresearch/india_district_boundaries')
     .filter(ee.Filter.eq('Name',aoi_name));
     
     var aoi_image_sr = ee.ImageCollection('LANDSAT/LE07/C01/T1_SR')

@@ -22,24 +22,12 @@ var month_list = ['1half','2half','year_median'];
 
 var aoi_list =['Hyderabad','Gurgaon','Mumbai','Chandigarh','Delhi'];
 
-
-
-///// Sentinel Band resolution ------------------
-//   10 mtr - B2 B3 B4 B8
-//  20 mtr - B5 B6 B7 B8A B11 B12
-//   60 mtr - B9 B10 B1
-//
-//
-//
-//
-//---------------------------------------------
-
 var bands = ['B1','B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8','B9', 'B10', 'B11','B12','B8A'];
 
 //var bands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B11','B12','B8A']; // resolution 10 and 20 mtr
 //var bands = ['B2', 'B3', 'B4'];
 
-var india = ee.FeatureCollection('users/hariomahlawat/India_Boundary')
+var india = ee.FeatureCollection('users/chahatresearch/India_Boundary')
     .geometry();
 
 var india_image = ee.ImageCollection('COPERNICUS/S2') // searches all sentinel 2 imagery pixels...
@@ -56,7 +44,7 @@ var india_image_training_min = india_image.min();
 var india_image_training_max = india_image.max();
 
 //Loading the training dataset
-var ft = ee.FeatureCollection('users/hariomahlawat/IndiaSat');
+var ft = ee.FeatureCollection('users/chahatresearch/IndiaSat');
 
 
 function add_normalized_bands(image){
@@ -87,8 +75,6 @@ var new_bands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B11','B12','B8A','ND
                 'B2_1','B3_1','B4_1', 'NDVI_1','NDWI_1',
                 'B2_2','B3_2','B4_2','NDVI_2','NDWI_2'
                 ];
-
-  
 
 
 var training = india_image_training.sampleRegions(ft,['class'],30);
@@ -140,7 +126,7 @@ var aoi_name = aoi_list[i];
     var year = year_list[j];
       
     var aoi = aoi_list[j];
-    var aoi = ee.FeatureCollection('users/hariomahlawat/india_district_boundaries')
+    var aoi = ee.FeatureCollection('users/chahatresearch/india_district_boundaries')
     .filter(ee.Filter.eq('Name',aoi_name));
  
       var aoi_image_toa = ee.ImageCollection('COPERNICUS/S2')
@@ -180,10 +166,10 @@ var aoi_name = aoi_list[i];
       
     Export.image.toDrive({
     image: input.clip(aoi),
-    description: 'case8_sentinel2a_'+str + '_' + year+misc,
+    description: 'sentinel2a_'+str+'_'+year+misc,
     maxPixels: 1e9,
     scale: 30,
-    folder: 'New_Method_Sentinel_Case8_'+str,
+    folder: 'Sentinel2a_'+str,
     region: aoi.geometry().bounds()
     });
       

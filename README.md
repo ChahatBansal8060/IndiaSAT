@@ -25,22 +25,14 @@ For exmample if you are doing classification for an area name Delhi, then put al
     
         python3 Scripts/LC_classification/final_classification_processing.py Delhi
 
-> The final classification result will be stored in the Results directory inside root folder. For above example the classification results of each year will be in Results/Delhi/results/combined_yearly_prediction_temp_corrected. 
+> The final classification result will be stored in the Results directory inside root folder. For above example the classification results of each year will be in Results/Delhi/results/combined_yearly_prediction_temp_corrected. We generate 3 sets of results: (1) Direct classification maps (using year median images), (2) Combined yearly mapping (with 3 images), and (3) Combined yearly mapping with temporal correction.
 
-* **Optional- only_temporal_correction.py (for developers use)**
-
-
-the command-line argument to be given while running the script - the path of root folder for a given area. (which you created in step 2)
-
-        python3 only_temporal_correction.py Delhi
-
-> This script is for experimentation with temporal correction technique. This performs only the temporal correction.
 
 * **Optional- check_accuracy_2cat_landsat.py**
 
 The command-line argument to be given while running the script - the path of root folder for a given area. (which you created in step 2)
 
-        ptyhon3 check_accuracy_2cat_landsat.py Delhi
+        python3 check_accuracy_2cat_landsat.py Delhi
 
 This script is to check the BU/NBU accuracy when the ground-truth is available in four categories (green, water, bareland and built-up).
 This script will provide four options to the user to check the accuracy of outputs from four different methods/techniques. The output of this script will be saved in a .txt file. 

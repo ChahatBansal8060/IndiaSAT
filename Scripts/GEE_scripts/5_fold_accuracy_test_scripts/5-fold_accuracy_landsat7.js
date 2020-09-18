@@ -18,7 +18,7 @@ var cloudMaskL457 = function(image) {
 
 
 var bands = ['B1','B2', 'B3', 'B4', 'B5', 'B6','B7'];
-var india = ee.FeatureCollection('users/hariomahlawat/India_Boundary')
+var india = ee.FeatureCollection('users/chahatresearch/India_Boundary')
     .geometry();
 
 
@@ -37,7 +37,7 @@ var india_image_training_max = india_image.max();
 
 
 //Training feature collection. Imported from assets (Its a shapefile)
-var ft = ee.FeatureCollection('users/hariomahlawat/IndiaSat');
+var ft = ee.FeatureCollection('users/chahatresearch/IndiaSat');
 
 
 function add_normalized_bands(image){
