@@ -28,14 +28,14 @@ For exmample if you are doing classification for an area name Delhi, then put al
 > The final classification result will be stored in the Results directory inside root folder. For above example the classification results of each year will be in Results/Delhi/results/combined_yearly_prediction_temp_corrected. We generate 3 sets of results: (1) Direct classification maps (using year median images), (2) Combined yearly mapping (with 3 images), and (3) Combined yearly mapping with temporal correction.
 
 
-* **Optional- check_accuracy_2cat_landsat.py**
+* **Optional- get_BU_NBU_accuracy.py**
 
-The command-line argument to be given while running the script - the path of root folder for a given area. (which you created in step 2)
+The command-line argument to be given while running the script - the path of root folder for a given area. (which you created in step 2), the path of folder storing groundtruth files, and the year for which groundtruth is created. 
 
-        python3 check_accuracy_2cat_landsat.py Delhi
+        python3 Scripts/LC_classification/get_BU_NBU_accuracy.py Results/Delhi/ Datasets/Groundtruth_4_categories/ 2018
 
 This script is to check the BU/NBU accuracy when the ground-truth is available in four categories (green, water, bareland and built-up).
-This script will provide four options to the user to check the accuracy of outputs from four different methods/techniques. The output of this script will be saved in a .txt file. 
+This script will provide four options to the user to check the accuracy of outputs from four different methods/techniques. The output of this script will be saved in a .txt file in Results/BU_NBU_Accuracy_2018. 
 
 ## Prerequisites
 * Google Earth Engine(GEE) account to run the google earth engine scripts for downloading and images and run the classifier
