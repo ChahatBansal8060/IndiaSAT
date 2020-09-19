@@ -1,0 +1,52 @@
+District - Mumbai
+
+        ----------------------------------------------
+        Direct Classification using Year Median Images
+        ----------------------------------------------
+        
+Confusion Matrix (BU, NBU): 
+2393, 5, 
+118, 1380, 
+
+label precision recall avg_precision avg_recall
+    0    95.301  99.791   97.470      95.957
+    1    99.639  92.123   97.470      95.957
+District - Mumbai
+
+        ------------------------------------------
+        Temporally Corrected Direct Classification
+        ------------------------------------------
+        
+Confusion Matrix (BU, NBU): 
+2396, 2, 
+130, 1368, 
+
+label precision recall avg_precision avg_recall
+    0    94.854  99.917   97.354      95.619
+    1    99.854  91.322   97.354      95.619
+District - Mumbai
+
+        -------------------------------------
+        Rule-based Combined Yearly Prediction
+        -------------------------------------
+        
+Confusion Matrix (BU, NBU): 
+2389, 9, 
+73, 1425, 
+
+label precision recall avg_precision avg_recall
+    0    97.035  99.625   98.204      97.376
+    1    99.372  95.127   98.204      97.376
+District - Mumbai
+
+        -----------------------------------------------------------
+         Temporally Corrected Rule-based Combined Yearly Prediction
+        -----------------------------------------------------------
+        
+Confusion Matrix (BU, NBU): 
+2394, 4, 
+116, 1382, 
+
+label precision recall avg_precision avg_recall
+    0    95.378  99.833   97.545      96.045
+    1    99.711  92.256   97.545      96.045
