@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<NetworkLink>
+<name><![CDATA[IND_adm2]]></name>
+<Link>
+<href>
+https://fusiontables.google.com/exporttable?query=select+col2+from+1PA2zwArj8EsplrX9eMxJ2H_TICyyx855KPnbJhC1&amp;o=kmllink&amp;g=col2&amp;styleId=2&amp;templateId=2</href>
+</Link>
+</NetworkLink>
+</kml>

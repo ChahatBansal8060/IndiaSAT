@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<NetworkLink>
+<name><![CDATA[Goldblatt et al. 20K dataset for image classification of built up areas in India]]></name>
+<Link>
+<href>
+https://fusiontables.google.com/exporttable?query=select+col1+from+1fWY4IyYiV-BA5HsAKi2V9LdoQgsbFtKK2BoQiHb0&amp;o=kmllink&amp;g=col1&amp;styleId=2&amp;templateId=2</href>
+</Link>
+</NetworkLink>
+</kml>

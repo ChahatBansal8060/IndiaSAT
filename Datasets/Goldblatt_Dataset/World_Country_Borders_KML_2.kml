@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<NetworkLink>
+<name><![CDATA[World_Country_Borders_KML]]></name>
+<Link>
+<href>
+https://fusiontables.google.com/exporttable?query=select+col3+from+1UDdgOCf8DoRJ9bVm-UVbR6CqxtkJToLQjTFd0r0Z&amp;o=kmllink&amp;g=col3&amp;styleId=1&amp;templateId=1</href>
+</Link>
+</NetworkLink>
+</kml>
