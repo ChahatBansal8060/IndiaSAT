@@ -26,6 +26,7 @@ For exmample if you are doing classification for an area name Delhi, then put al
         python3 Scripts/LC_classification/final_classification_processing.py Delhi
 
 > The final classification result will be stored in the Results directory inside root folder. For above example the classification results of each year will be in Results/Delhi/results/combined_yearly_prediction_temp_corrected. We generate 3 sets of results: (1) Direct classification maps (using year median images), (2) Combined yearly mapping (with 3 images), and (3) Combined yearly mapping with temporal correction.
+Please note that you have to edit the list of years under analysis in the script for processing. You can also choose if you want temporal correction to be done in a single batch, or in group of batches.
 
 
 * **Optional- get_BU_NBU_accuracy.py**
