@@ -1,0 +1,30 @@
+CBU/CNBU/Changing Accuracy for District- Mumbai
+
+		--------------------------------------------------------------------------
+		Change Classification of Direct LC Classification using Year Median Images
+		--------------------------------------------------------------------------
+		
+Confusion Matrix (CBU, CNBU, Changing): 
+275, 1, 1, 
+26, 348, 87, 
+50, 4, 84, 
+
+label precision recall avg_precision avg_recall
+    0    78.348  99.278   75.256      78.545
+    1    98.584  75.488   75.256      78.545
+    2    48.837  60.870   75.256      78.545
+CBU/CNBU/Changing Accuracy for District- Mumbai
+
+		-------------------------------------------------------------------
+		Change Classification of Temporally Corrected Direct Classification
+		-------------------------------------------------------------------
+		
+Confusion Matrix (CBU, CNBU, Changing): 
+276, 0, 1, 
+51, 342, 68, 
+54, 2, 82, 
+
+label precision recall avg_precision avg_recall
+    0    72.441  99.639   75.388      77.749
+    1    99.419  74.187   75.388      77.749
+    2    54.305  59.420   75.388      77.749
