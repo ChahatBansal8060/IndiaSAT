@@ -29,6 +29,15 @@ For exmample if you are doing classification for an area name Delhi, then put al
 Please note that you have to edit the list of years under analysis in the script for processing. You can also choose if you want temporal correction to be done in a single batch, or in group of batches.
 
 
+* **Optional- get_4_class_accuracy.py**
+
+The command-line argument to be given while running the script - the path of root folder for a given area. (which you created in step 2), the path of folder storing groundtruth files, and the year for which groundtruth is created. 
+
+        python3 Scripts/LC_classification/get_4_class_accuracy.py Results/Delhi/ Datasets/Groundtruth_4_categories_2018/ 2018
+
+This script is to check the accuracy when the ground-truth is available in four categories (green, water, bareland and built-up).
+This script will provide four options to the user to check the accuracy of outputs from four different methods/techniques. The output of this script will be saved in a .txt file in Results/Classification_4cat_Accuracy_2018s. 
+
 * **Optional- get_BU_NBU_accuracy.py**
 
 The command-line argument to be given while running the script - the path of root folder for a given area. (which you created in step 2), the path of folder storing groundtruth files, and the year for which groundtruth is created. 
