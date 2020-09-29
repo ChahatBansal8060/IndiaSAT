@@ -52,7 +52,7 @@ This script creates a single CBU_CNBU_Changing map for this interval, where the 
 
 The command-line argument to be given while running the script - the path of folder containing CBU/CNB/Changing map for a given area. (which you created in step 3), the path of folder storing CBU_CNBU_)Changing groundtruth files for this district, and a REFERENCE TIFFILE to create png prediction maps to tif files (this reference tiffile can be any tiffile of this district, like the ones downloaded from GEE in the very beginning). 
 
-        python3 Scripts/Builtup_change_classification/check_builtup_change_accuracy.py Results/Builtup_change_classification_2016_2019/Delhi/ Datasets/CBU_CNBU_Changing_Groundtruth_2016_2019/Delhi/ Results/Delhi/2016/landsat8_Delhi_2016_1half.tif
+        python3 Scripts/Builtup_change_classification/get_builtup_change_accuracy.py Results/Builtup_change_classification_2016_2019/Delhi/ Datasets/CBU_CNBU_Changing_Groundtruth_2016_2019/Delhi/ Results/Delhi/2016/landsat8_Delhi_2016_1half.tif
 
 This script is to check the CBU/CNBU/Changing accuracy when the ground-truth is available in these three categories.
 This script will provide four options to the user to check the accuracy of outputs from four different methods/techniques. The output of this script will be saved in a .txt file in Results/CBU_CNBU_Changing_Accuracy_2016_2019. 
