@@ -11,7 +11,7 @@ from os import listdir, path
 from os.path import isfile, join
 import shutil
 from groundtruth_preprocessing import *
-
+import kml2geojson
 
 #######################################################################################################################
 '''
@@ -88,11 +88,16 @@ def CutTifffile(folder_tifffiles, folder_groundtruth_shapefiles, year):
 			#print(tiff_file_name)
     i = 0
     for shapefile in listdir(folder_groundtruth_shapefiles):
-        if shapefile[-5:]=='.json':
+        if shapefile[-3:]=='kml':
             #print(shapefile)
-            json_data = json.loads(open(folder_groundtruth_shapefiles+'/'+shapefile).read())
+
+            kml2geojson.main.convert(folder_groundtruth_shapefiles+'/'+shapefile, folder_groundtruth_shapefiles)
+            
+            json_filepath = folder_groundtruth_shapefiles+'/'+shapefile[:-3]+'geojson'
+
+            json_data = json.loads(open(json_filepath).read())
             #print(json_data)
-            output_directory = folder_tifffiles+'/'+shapefile[:-5]	
+            output_directory = folder_tifffiles+'/'+shapefile[:-4]	
             os.makedirs(output_directory, exist_ok=True)
            
             for currFeature in json_data["features"]:
